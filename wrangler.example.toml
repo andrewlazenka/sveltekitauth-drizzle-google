@@ -1,0 +1,12 @@
+name = "sveltekitauth-drizzle-google"
+account_id = ""
+
+build.command = "npm run build"
+
+compatibility_date = "2023-06-28"
+workers_dev = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "sveltekitauth-drizzle-google"
+database_id = ""
