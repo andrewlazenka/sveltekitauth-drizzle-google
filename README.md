@@ -1,38 +1,32 @@
-# create-svelte
+# sveltekitauth-drizzle-google
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Reproduction repo
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## Install
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
+npm i
 
-# create a new project in my-app
-npm create svelte@latest my-app
+# copy & fill out details
+cp .env.example .env
+cp wrangler.example.toml wrangler.toml
+
+npm run drizzle:generate
+npm run drizzle:up
+npm run db:migrate
+
+# opens at http://localhost:8788
+npm run watch
 ```
 
-## Developing
+## Error Repro Steps
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. Sign in
+2. Session is established, user + associated records written to DB
+3. Sign out
+4. Sign in
+5. Error screen + message in console
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
+OAuthAccountNotLinked: Another account already exists with the same e-mail address
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
